@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- OpenGraph Meta Tags -->
+    <meta property="og:title" content="Sweet Baby - Your Parenting Companion" />
+    <meta property="og:description" content="Sweet Baby is your trusted guide for baby care, parenting tips, and nurturing support." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" />
+    <meta property="og:url" content="https://www.sweetbaby.com/index.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Sweet Baby" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sweet Baby | Parenting & Baby Care Guide" />
+    <meta name="twitter:description" content="Your trusted companion for baby care and parenting tips." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" />
+    <meta name="twitter:url" content="https://www.sweetbaby.com/index.html" />
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="author" content="Sweet Baby Team">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.sweetbaby.com/index.html" />
+
+    <meta name="description" content="Sweet Baby offers loving guidance on baby care, parenting tips, and nurturing support.">
+    <meta name="keywords" content="Sweet Baby, baby care, parenting tips, newborn care, baby health, child development, parenting support">
+    <title>Sweet Baby - Your Trusted Parenting Companion</title>
+    <link rel="icon" type="image/ico" sizes="96x96" href="favicon.ico">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Base styles and variables - Updated Color Scheme like about-us.html */
+        :root {
+            --primary-color: #6a11cb;
+            --secondary-color: #2575fc;
+            --accent-color: #ff9800;
+            --accent-hover: #e68900;
+            --background-gradient: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            --card-bg: rgba(255, 255, 255, 0.1);
+            --text-white: #FFFFFF;
+            --text-white-light: #F8F8F8;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+
+        body {
+            background: var(--background-gradient);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 25px var(--shadow-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            padding: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-white);
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: var(--border-radius);
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo i {
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+        }
+
+        .nav-links li {
+            margin: 0;
+        }
+
+        .nav-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            background-color: rgba(255, 255, 255, 0.08);
+            font-size: 0.95rem;
+            white-space: nowrap;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-links a.active {
+            background-color: var(--accent-color);
+            color: var(--text-white);
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+            border-color: var(--accent-color);
+        }
+
+        .nav-links a.active:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Mobile Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            color: var(--text-white);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: var(--border-radius);
+            border: none;
+            font-size: 1.4rem;
+            width: 48px;
+            height: 48px;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .menu-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            right: -280px;
+            width: 280px;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color), #4a0da3);
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.4);
+            z-index: 1001;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            padding: 80px 20px 30px;
+            overflow-y: auto;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .mobile-menu-overlay.active {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            color: var(--text-white);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex: 1;
+        }
+
+        .mobile-menu-links li {
+            margin-bottom: 12px;
+        }
+
+        .mobile-menu-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 16px 22px;
+            display: block;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .mobile-menu-links a.active {
+            background-color: var(--accent-color);
+            color: var(--text-white);
+            border-color: var(--accent-color);
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-white);
+            width: 44px;
+            height: 44px;
+            border-radius: var(--border-radius);
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .close-menu:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 20px;
+            min-height: calc(100vh - 80px);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .hero-title {
+            font-size: clamp(2.3rem, 5.5vw, 3.5rem);
+            color: var(--text-white);
+            margin-bottom: 25px;
+            font-weight: 800;
+            line-height: 1.2;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 2.8vw, 1.4rem);
+            color: var(--text-white-light);
+            margin-bottom: 50px;
+            line-height: 1.7;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
+            opacity: 0.9;
+        }
+
+        /* Main Image Display */
+        .main-image-container {
+            margin: 40px auto;
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .main-image-wrapper {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+
+        .main-image-wrapper:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .main-image {
+            width: 100%;
+            height: auto;
+            border-radius: calc(var(--border-radius) - 4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            display: block;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .main-image:hover {
+            transform: scale(1.02);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .image-caption {
+            margin-top: 20px;
+            color: var(--text-white-light);
+            font-size: 1rem;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        /* Start Button - Keeping hover style same */
+        .start-button {
+            background-color: var(--accent-color);
+            color: var(--text-white);
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 12px 35px rgba(255, 152, 0, 0.5);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .start-button:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(255, 152, 0, 0.6);
+            background-color: var(--accent-hover);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .start-button i {
+            font-size: 1.4rem;
+            transition: transform 0.3s ease;
+        }
+
+        .start-button:hover i {
+            transform: translateX(8px);
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.4);
+            z-index: 999;
+            justify-content: space-around;
+            align-items: center;
+            height: 75px;
+            padding: 0 15px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+        }
+
+        .bottom-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+            padding: 10px 8px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            flex: 1;
+            max-width: 85px;
+            min-height: 60px;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            opacity: 0.8;
+        }
+
+        .bottom-nav a.active,
+        .bottom-nav a:hover {
+            color: var(--accent-color);
+            background: rgba(255, 152, 0, 0.1);
+            transform: translateY(-8px);
+            border-color: rgba(255, 152, 0, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            opacity: 1;
+        }
+
+        .bottom-nav a i {
+            font-size: 1.5rem;
+            margin-bottom: 6px;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 35px 20px;
+            text-align: center;
+            margin-top: auto;
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .slogan {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: var(--text-white);
+            font-weight: 250;
+        }
+
+        .credit {
+            color: var(--text-white-light);
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .nav-links {
+                gap: 5px;
+            }
+            
+            .nav-links a {
+                padding: 9px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 12px 15px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .logo {
+                font-size: 1.6rem;
+                padding: 8px 15px;
+            }
+
+            .hero-section {
+                padding: 40px 15px;
+                min-height: calc(100vh - 60px);
+            }
+
+            .hero-title {
+                font-size: 1.84rem;
+                margin-bottom: 20px;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 40px;
+                padding: 0 15px;
+            }
+
+            .main-image-container {
+                margin: 35px auto;
+                padding: 0 15px;
+                max-width: 450px;
+            }
+
+            .main-image-wrapper {
+                padding: 20px;
+            }
+
+            .start-button {
+                padding: 18px 40px;
+                font-size: 1.2rem;
+                width: 90%;
+                max-width: 320px;
+            }
+
+            .bottom-nav {
+                height: 70px;
+            }
+
+            .mobile-menu-overlay {
+                width: 260px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.9rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.05rem;
+            }
+
+            .main-image-container {
+                max-width: 100%;
+            }
+
+            .start-button {
+                padding: 16px 35px;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .bottom-nav {
+                display: none;
+            }
+            
+            .mobile-menu-overlay {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-baby"></i>
+                Sweet Baby
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="article.html">Blog</a></li>
+                <li><a href="disclaimer.html">Disclaimer</a></li>
+                <li><a href="privacy-policy.html">Privacy</a></li>
+                <li><a href="terms-of-service.html">Terms</a></li>
+                <li><a href="contact-us.html">Contact</a></li>
+            </ul>
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <button class="close-menu" id="closeMenu">
+            <i class="fas fa-times"></i>
+        </button>
+        <h2 class="mobile-menu-header">
+            <i class="fas fa-baby"></i>
+            Sweet Baby
+        </h2>
+        <ul class="mobile-menu-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="article.html">Blog</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">तुमच्या जबाबदारीची प्रेमळ सुरुवात</h1>
+                    <p class="hero-subtitle">
+                        मातृत्वाच्या कोमल भावनांना शब्द देणारी, नव्या जबाबदारीची ही गोड सुरुवात अधिक खास बनवा.
+                    </p>
+                    
+                    <!-- Main Image Display -->
+                    <div class="main-image-container">
+                        <div class="main-image-wrapper">
+                            <!-- 
+                                TO CHANGE THE IMAGE:
+                                Replace the URL below with your desired image URL
+                                Example: src="https://your-image-url.com/image.jpg"
+                            -->
+                            <img id="mainImage" src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Happy Baby with Parents" class="main-image">
+                            <p class="image-caption">Beautiful parenting moments await you</p>
+                        </div>
+                    </div>
+                    
+                    <button class="start-button" id="startButton">
+                        <i class="fas fa-play-circle"></i>
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="bottom-nav">
+        <a href="index.html" class="active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="article.html">
+            <i class="fas fa-book-open"></i>
+            <span>Articles</span>
+        </a>
+        <a href="Ideas.html">
+            <i class="fas fa-lightbulb"></i>
+            <span>Ideas</span>
+        </a>
+        <a href="data-analyzer.html">
+            <i class="fas fa-chart-area"></i>
+            <span>Analyzer</span>
+        </a>
+        <a href="contact-us.html">
+            <i class="fas fa-envelope"></i>
+            <span>Contact</span>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="slogan">लहानशा जीवासाठी, मोठ्या आशांनी भरलेले नाव निवडण्यासाठी, आम्ही तुमच्या सोबत आहोत.</p>
+                <p class="credit">© 2025 Sweet Baby. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (mobileMenu.classList.contains('active') && 
+                !mobileMenu.contains(event.target) && 
+                !menuToggle.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Start Button Functionality
+        const startButton = document.getElementById('startButton');
+        startButton.addEventListener('click', function() {
+            // Add click animation
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+                // Navigate to articles page
+                window.location.href = 'article.html';
+            }, 200);
+        });
+
+        // Set active navigation
+        function setActiveNavigation() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu-links a, .bottom-nav a');
+            
+            navLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                link.classList.remove('active');
+                
+                if ((currentPage === 'index.html' && linkHref === 'index.html') ||
+                    (currentPage === linkHref)) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            setActiveNavigation();
+            
+            // Image error handling
+            const mainImage = document.getElementById('mainImage');
+            mainImage.addEventListener('error', function() {
+                // Fallback image if the main image fails to load
+                this.src = 'https://images.unsplash.com/photo-1530041539828-114de669390e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
+            });
+        });
+
+        // Simple pull-to-refresh for mobile
+        let touchStartY = 0;
+        
+        document.addEventListener('touchstart', (e) => {
+            if (window.scrollY === 0) {
+                touchStartY = e.touches[0].clientY;
+            }
+        });
+        
+        document.addEventListener('touchend', (e) => {
+            if (touchStartY && window.scrollY === 0) {
+                const touchEndY = e.changedTouches[0].clientY;
+                const pullDistance = touchEndY - touchStartY;
+                
+                if (pullDistance > 150) {
+                    // Reload page with slight animation
+                    document.body.style.transition = 'transform 0.3s ease-out';
+                    document.body.style.transform = 'translateY(100px)';
+                    
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 300);
+                }
+                
+                touchStartY = 0;
+            }
+        });
+    </script>
+</body>
+</html>
