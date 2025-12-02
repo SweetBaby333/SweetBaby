@@ -165,6 +165,72 @@
             background-color: var(--accent-hover);
         }
 
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dropdown-toggle i {
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .dropdown.active .dropdown-toggle i {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 0;
+            min-width: 220px;
+            background: linear-gradient(135deg, var(--primary-color), #4a0da3);
+            border-radius: var(--border-radius);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            padding: 10px;
+            list-style: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: var(--transition);
+            z-index: 100;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li {
+            margin-bottom: 5px;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: var(--text-white);
+            text-decoration: none;
+            border-radius: calc(var(--border-radius) - 4px);
+            transition: var(--transition);
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
         /* Mobile Menu Toggle Button */
         .menu-toggle {
             display: none;
@@ -257,6 +323,42 @@
             background-color: var(--accent-color);
             color: var(--text-white);
             border-color: var(--accent-color);
+        }
+
+        .mobile-dropdown-menu {
+            list-style: none;
+            padding-left: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            display: none;
+        }
+
+        .mobile-dropdown.active .mobile-dropdown-menu {
+            display: block;
+        }
+
+        .mobile-dropdown-menu li {
+            margin-bottom: 8px;
+        }
+
+        .mobile-dropdown-menu a {
+            padding: 12px 20px;
+            font-size: 1rem;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .mobile-dropdown-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mobile-dropdown-toggle i {
+            transition: var(--transition);
+        }
+
+        .mobile-dropdown.active .mobile-dropdown-toggle i {
+            transform: rotate(180deg);
         }
 
         .close-menu {
@@ -372,40 +474,57 @@
             opacity: 0.8;
         }
 
-        /* Start Button - Keeping hover style same */
-        .start-button {
-            background-color: var(--accent-color);
-            color: var(--text-white);
-            border: none;
-            padding: 20px 50px;
-            font-size: 1.3rem;
-            font-weight: 700;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 12px 35px rgba(255, 152, 0, 0.5);
-            display: inline-flex;
+        /* Authentication Buttons */
+        .auth-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 400px;
+            margin: 40px auto 0;
+        }
+
+        .auth-button {
+            display: flex;
             align-items: center;
             justify-content: center;
             gap: 15px;
-            margin-top: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 18px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            width: 100%;
         }
 
-        .start-button:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 45px rgba(255, 152, 0, 0.6);
-            background-color: var(--accent-hover);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .start-button i {
+        .auth-button i {
             font-size: 1.4rem;
-            transition: transform 0.3s ease;
         }
 
-        .start-button:hover i {
-            transform: translateX(8px);
+        .auth-button.google {
+            background-color: #ffffff;
+            color: #333;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .auth-button.google:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .auth-button.facebook {
+            background-color: #1877F2;
+            color: #ffffff;
+            box-shadow: 0 10px 25px rgba(24, 119, 242, 0.3);
+        }
+
+        .auth-button.facebook:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(24, 119, 242, 0.4);
+            border-color: rgba(255, 255, 255, 0.3);
+            background-color: #166FE5;
         }
 
         /* Bottom Navigation */
@@ -548,11 +667,13 @@
                 padding: 20px;
             }
 
-            .start-button {
-                padding: 18px 40px;
-                font-size: 1.2rem;
-                width: 90%;
+            .auth-buttons {
                 max-width: 320px;
+            }
+
+            .auth-button {
+                padding: 16px 25px;
+                font-size: 1rem;
             }
 
             .bottom-nav {
@@ -577,9 +698,12 @@
                 max-width: 100%;
             }
 
-            .start-button {
-                padding: 16px 35px;
-                font-size: 1.1rem;
+            .auth-buttons {
+                max-width: 100%;
+            }
+
+            .auth-button {
+                padding: 15px 20px;
             }
         }
 
@@ -608,10 +732,20 @@
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about-us.html">About Us</a></li>
                 <li><a href="article.html">Blog</a></li>
-                <li><a href="disclaimer.html">Disclaimer</a></li>
-                <li><a href="privacy-policy.html">Privacy</a></li>
-                <li><a href="terms-of-service.html">Terms</a></li>
-                <li><a href="contact-us.html">Contact</a></li>
+                <li class="dropdown" id="trustCenterDropdown">
+                    <a href="trust_center.html" class="dropdown-toggle">
+                        Trust Center
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+                <li><a href="privacy-policy.html">Settings</a></li>
+                <li><a href="privacy-policy.html">Feedback</a></li>
             </ul>
             
             <!-- Mobile Menu Toggle Button -->
@@ -634,10 +768,20 @@
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="about-us.html">About Us</a></li>
             <li><a href="article.html">Blog</a></li>
-            <li><a href="disclaimer.html">Disclaimer</a></li>
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li class="mobile-dropdown" id="mobileTrustCenterDropdown">
+                <a href="trust_center.html" class="mobile-dropdown-toggle">
+                    Trust Center
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="mobile-dropdown-menu">
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                </ul>
+            </li>
             <li><a href="contact-us.html">Contact Us</a></li>
+            <li><a href="privacy-policy.html">Settings</a></li>
+            <li><a href="privacy-policy.html">Feedback</a></li>
         </ul>
     </div>
 
@@ -649,7 +793,7 @@
                 <div class="hero-content">
                     <h1 class="hero-title">तुमच्या जबाबदारीची प्रेमळ सुरुवात</h1>
                     <p class="hero-subtitle">
-                        मातृत्वाच्या कोमल भावनांना शब्द देणारी, नव्या जबाबदारीची ही गोड सुरुवात अधिक खास बनवा.
+                        मातृत्वाच्या कोमल भावनांना शब्द देणारी, नव्या जबाबदारीची ही गोड सुरुवात, बनवा अधिक खास.
                     </p>
                     
                     <!-- Main Image Display -->
@@ -666,10 +810,17 @@
                         </div>
                     </div>
                     
-                    <button class="start-button" id="startButton">
-                        <i class="fas fa-play-circle"></i>
-                        Get Started
-                    </button>
+                    <!-- Authentication Buttons -->
+                    <div class="auth-buttons">
+                        <button class="auth-button google" id="googleSignIn">
+                            <i class="fab fa-google"></i>
+                            Continue with Google
+                        </button>
+                        <button class="auth-button facebook" id="facebookSignIn">
+                            <i class="fab fa-facebook-f"></i>
+                            Sign in with Facebook
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -681,21 +832,21 @@
             <i class="fas fa-home"></i>
             <span>Home</span>
         </a>
-        <a href="article.html">
-            <i class="fas fa-book-open"></i>
-            <span>Articles</span>
+        <a href="categories.html">
+            <i class="fas fa-layer-group"></i>
+            <span>Categories</span>
         </a>
-        <a href="Ideas.html">
-            <i class="fas fa-lightbulb"></i>
-            <span>Ideas</span>
+        <a href="search.html">
+            <i class="fas fa-magnifying-glass"></i>
+            <span>Search</span>
         </a>
-        <a href="data-analyzer.html">
-            <i class="fas fa-chart-area"></i>
-            <span>Analyzer</span>
+        <a href="favorites.html">
+            <i class="fas fa-heart"></i>
+            <span>Favorites</span>
         </a>
-        <a href="contact-us.html">
-            <i class="fas fa-envelope"></i>
-            <span>Contact</span>
+        <a href="invite.html">
+            <i class="fas fa-user-plus"></i>
+            <span>Invite</span>
         </a>
     </div>
 
@@ -703,8 +854,8 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p class="slogan">लहानशा जीवासाठी, मोठ्या आशांनी भरलेले नाव निवडण्यासाठी, आम्ही तुमच्या सोबत आहोत.</p>
-                <p class="credit">© 2025 Sweet Baby. All rights reserved.</p>
+                <p class="slogan">लहानशा जीवासाठी, मोठ्या आशांनी भरलेले नाव निवडण्यासाठी, आम्ही आहोत तुमच्या सोबत.</p>
+                <p class="credit">© 2026 Sweet Baby. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -743,15 +894,52 @@
             }
         });
 
-        // Start Button Functionality
-        const startButton = document.getElementById('startButton');
-        startButton.addEventListener('click', function() {
-            // Add click animation
+        // Trust Center Dropdown
+        const trustCenterDropdown = document.getElementById('trustCenterDropdown');
+        const mobileTrustCenterDropdown = document.getElementById('mobileTrustCenterDropdown');
+
+        trustCenterDropdown.addEventListener('click', (e) => {
+            if (window.innerWidth > 768) {
+                e.preventDefault();
+                trustCenterDropdown.classList.toggle('active');
+            }
+        });
+
+        mobileTrustCenterDropdown.addEventListener('click', (e) => {
+            e.preventDefault();
+            mobileTrustCenterDropdown.classList.toggle('active');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!trustCenterDropdown.contains(event.target)) {
+                trustCenterDropdown.classList.remove('active');
+            }
+        });
+
+        // Authentication Buttons Functionality
+        const googleSignIn = document.getElementById('googleSignIn');
+        const facebookSignIn = document.getElementById('facebookSignIn');
+
+        googleSignIn.addEventListener('click', function() {
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
                 this.style.transform = '';
-                // Navigate to articles page
-                window.location.href = 'article.html';
+                // Add your Google Sign-In logic here
+                console.log('Google Sign-In clicked');
+                alert('Google Sign-In functionality would be implemented here');
+                // window.location.href = 'your-google-auth-endpoint';
+            }, 200);
+        });
+
+        facebookSignIn.addEventListener('click', function() {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+                // Add your Facebook Sign-In logic here
+                console.log('Facebook Sign-In clicked');
+                alert('Facebook Sign-In functionality would be implemented here');
+                // window.location.href = 'your-facebook-auth-endpoint';
             }, 200);
         });
 
