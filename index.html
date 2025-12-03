@@ -433,7 +433,7 @@
             opacity: 0.9;
         }
 
-        /* Image Slider Styles */
+        /* Silent Glitch Transition Image Slider */
         .image-slider-container {
             margin: 40px auto;
             width: 100%;
@@ -462,15 +462,16 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: opacity 1s ease-in-out;
             display: flex;
             align-items: center;
             justify-content: center;
+            z-index: 1;
         }
 
         .slide.active {
             opacity: 1;
-            z-index: 1;
+            z-index: 2;
         }
 
         .slide img {
@@ -479,97 +480,88 @@
             object-fit: cover;
             border-radius: calc(var(--border-radius) - 2px);
             display: block;
+            transition: transform 4s ease-in-out;
         }
 
-        .slider-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            padding: 20px;
-            position: relative;
-            z-index: 2;
-            background: rgba(0, 0, 0, 0.2);
+        .slide.active img {
+            transform: scale(1.02);
         }
 
-        .slider-btn {
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: var(--text-white);
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 1.2rem;
-        }
-
-        .slider-btn:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: scale(1.1);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .slider-btn:active {
-            transform: scale(0.95);
-        }
-
-        .progress-indicator {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .progress-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            cursor: pointer;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .progress-dot.active {
-            background: var(--accent-color);
-            transform: scale(1.2);
-            box-shadow: 0 0 10px rgba(255, 152, 0, 0.6);
-        }
-
-        .progress-dot::after {
-            content: '';
+        /* Silent Glitch Transition Effects */
+        .glitch-effect {
             position: absolute;
-            top: -4px;
-            left: -4px;
-            right: -4px;
-            bottom: -4px;
-            border-radius: 50%;
-            border: 1px solid transparent;
-            transition: var(--transition);
-        }
-
-        .progress-dot.active::after {
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        .slider-timer {
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            margin-top: 5px;
-            border-radius: 2px;
-            overflow: hidden;
+            height: 100%;
+            background: transparent;
+            z-index: 3;
+            pointer-events: none;
+            opacity: 0;
+            mix-blend-mode: overlay;
         }
 
-        .timer-progress {
-            height: 100%;
-            width: 0%;
-            background: var(--accent-color);
-            transition: width 0.1s linear;
+        .glitch-effect.active {
+            animation: glitchFlash 0.3s ease;
+        }
+
+        @keyframes glitchFlash {
+            0% {
+                opacity: 0;
+                background: rgba(255, 255, 255, 0);
+            }
+            10% {
+                opacity: 0.8;
+                background: rgba(255, 255, 255, 0.1);
+            }
+            20% {
+                opacity: 0.3;
+                background: rgba(106, 17, 203, 0.05);
+            }
+            30% {
+                opacity: 0.6;
+                background: rgba(37, 117, 252, 0.08);
+            }
+            40% {
+                opacity: 0.2;
+                background: rgba(255, 255, 255, 0.05);
+            }
+            50% {
+                opacity: 0.4;
+                background: rgba(255, 152, 0, 0.06);
+            }
+            60% {
+                opacity: 0.1;
+                background: rgba(255, 255, 255, 0.03);
+            }
+            70% {
+                opacity: 0.3;
+                background: rgba(106, 17, 203, 0.04);
+            }
+            80% {
+                opacity: 0.5;
+                background: rgba(37, 117, 252, 0.07);
+            }
+            90% {
+                opacity: 0.2;
+                background: rgba(255, 255, 255, 0.04);
+            }
+            100% {
+                opacity: 0;
+                background: rgba(255, 255, 255, 0);
+            }
+        }
+
+        @keyframes subtleZoom {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.01);
+            }
+            100% {
+                transform: scale(1.02);
+            }
         }
 
         .image-caption {
@@ -580,22 +572,6 @@
             opacity: 0.8;
             text-align: center;
             padding: 0 20px 20px;
-        }
-
-        /* Animation for slides */
-        @keyframes fadeInZoom {
-            0% {
-                opacity: 0;
-                transform: scale(1.05);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .slide.active img {
-            animation: fadeInZoom 1.5s ease-out forwards;
         }
 
         /* Authentication Buttons */
@@ -806,12 +782,6 @@
             .mobile-menu-overlay {
                 width: 260px;
             }
-
-            .slider-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 1.1rem;
-            }
         }
 
         @media (max-width: 480px) {
@@ -837,12 +807,6 @@
 
             .auth-button {
                 padding: 15px 20px;
-            }
-
-            .slider-btn {
-                width: 38px;
-                height: 38px;
-                font-size: 1rem;
             }
         }
 
@@ -935,9 +899,9 @@
                         मातृत्वाच्या कोमल भावनांना शब्द देणारी, नव्या जबाबदारीची ही गोड सुरुवात, बनवा अधिक खास.
                     </p>
                     
-                    <!-- Image Slider -->
+                    <!-- Silent Glitch Transition Image Slider -->
                     <div class="image-slider-container">
-                        <div class="image-slider">
+                        <div class="image-slider" id="imageSlider">
                             <!-- Slide 1 -->
                             <div class="slide active" data-index="0">
                                 <img src="prime-image/parenting-moments1.webp" alt="Parenting Moment 1">
@@ -957,29 +921,9 @@
                             <div class="slide" data-index="3">
                                 <img src="prime-image/parenting-moments4.webp" alt="Parenting Moment 4">
                             </div>
-                        </div>
-                        
-                        <!-- Slider Controls -->
-                        <div class="slider-controls">
-                            <button class="slider-btn prev-btn" aria-label="Previous image">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
                             
-                            <div class="progress-indicator">
-                                <div class="progress-dot active" data-index="0"></div>
-                                <div class="progress-dot" data-index="1"></div>
-                                <div class="progress-dot" data-index="2"></div>
-                                <div class="progress-dot" data-index="3"></div>
-                            </div>
-                            
-                            <button class="slider-btn next-btn" aria-label="Next image">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                        </div>
-                        
-                        <!-- Timer Progress Bar -->
-                        <div class="slider-timer">
-                            <div class="timer-progress"></div>
+                            <!-- Glitch Effect Overlay -->
+                            <div class="glitch-effect" id="glitchEffect"></div>
                         </div>
                         
                         <p class="image-caption">Beautiful parenting moments await you</p>
@@ -1036,60 +980,43 @@
     </footer>
 
     <script>
-        // Image Slider Functionality
-        class ImageSlider {
+        // Silent Glitch Transition Image Slider
+        class SilentGlitchSlider {
             constructor() {
                 this.slides = document.querySelectorAll('.slide');
-                this.dots = document.querySelectorAll('.progress-dot');
-                this.prevBtn = document.querySelector('.prev-btn');
-                this.nextBtn = document.querySelector('.next-btn');
-                this.timerProgress = document.querySelector('.timer-progress');
+                this.glitchEffect = document.getElementById('glitchEffect');
                 this.currentIndex = 0;
                 this.totalSlides = this.slides.length;
-                this.intervalTime = 3333; // 3.333 seconds
+                this.intervalTime = 4000; // 4 seconds
                 this.intervalId = null;
-                this.timerStartTime = null;
-                this.timerAnimationId = null;
+                this.isTransitioning = false;
                 
                 this.init();
             }
             
             init() {
+                // Set initial state
+                this.updateSlides();
+                
                 // Start auto slide
                 this.startAutoSlide();
                 
-                // Event listeners for buttons
-                this.prevBtn.addEventListener('click', () => {
-                    this.pauseAutoSlide();
-                    this.prevSlide();
-                    this.resumeAutoSlide();
-                });
-                
-                this.nextBtn.addEventListener('click', () => {
-                    this.pauseAutoSlide();
-                    this.nextSlide();
-                    this.resumeAutoSlide();
-                });
-                
-                // Event listeners for dots
-                this.dots.forEach(dot => {
-                    dot.addEventListener('click', () => {
-                        const index = parseInt(dot.getAttribute('data-index'));
-                        this.pauseAutoSlide();
-                        this.goToSlide(index);
-                        this.resumeAutoSlide();
-                    });
-                });
-                
-                // Pause auto slide on hover
+                // Add click event for manual navigation
                 const sliderContainer = document.querySelector('.image-slider-container');
+                sliderContainer.addEventListener('click', () => {
+                    if (!this.isTransitioning) {
+                        this.pauseAutoSlide();
+                        this.nextSlide();
+                        this.resumeAutoSlide();
+                    }
+                });
+                
+                // Pause auto slide on hover/touch
                 sliderContainer.addEventListener('mouseenter', () => this.pauseAutoSlide());
                 sliderContainer.addEventListener('mouseleave', () => this.resumeAutoSlide());
-                
-                // Pause auto slide on touch for mobile
                 sliderContainer.addEventListener('touchstart', () => this.pauseAutoSlide());
                 sliderContainer.addEventListener('touchend', () => {
-                    setTimeout(() => this.resumeAutoSlide(), 3000);
+                    setTimeout(() => this.resumeAutoSlide(), 5000);
                 });
             }
             
@@ -1097,8 +1024,6 @@
                 this.intervalId = setInterval(() => {
                     this.nextSlide();
                 }, this.intervalTime);
-                
-                this.startTimer();
             }
             
             pauseAutoSlide() {
@@ -1106,8 +1031,6 @@
                     clearInterval(this.intervalId);
                     this.intervalId = null;
                 }
-                
-                this.pauseTimer();
             }
             
             resumeAutoSlide() {
@@ -1115,74 +1038,75 @@
                     this.intervalId = setInterval(() => {
                         this.nextSlide();
                     }, this.intervalTime);
-                    
-                    this.startTimer();
-                }
-            }
-            
-            startTimer() {
-                if (this.timerAnimationId) {
-                    cancelAnimationFrame(this.timerAnimationId);
-                }
-                
-                this.timerStartTime = Date.now();
-                this.animateTimer();
-            }
-            
-            pauseTimer() {
-                if (this.timerAnimationId) {
-                    cancelAnimationFrame(this.timerAnimationId);
-                    this.timerAnimationId = null;
-                }
-            }
-            
-            animateTimer() {
-                const elapsed = Date.now() - this.timerStartTime;
-                const progress = (elapsed % this.intervalTime) / this.intervalTime * 100;
-                
-                this.timerProgress.style.width = `${progress}%`;
-                
-                if (progress < 100) {
-                    this.timerAnimationId = requestAnimationFrame(() => this.animateTimer());
                 }
             }
             
             nextSlide() {
-                this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
-                this.updateSlider();
+                if (this.isTransitioning) return;
+                
+                this.isTransitioning = true;
+                
+                const currentSlide = this.slides[this.currentIndex];
+                const currentImage = currentSlide.querySelector('img');
+                
+                // Calculate next index
+                const nextIndex = (this.currentIndex + 1) % this.totalSlides;
+                const nextSlide = this.slides[nextIndex];
+                const nextImage = nextSlide.querySelector('img');
+                
+                // Reset zoom on current image
+                currentImage.style.transform = 'scale(1)';
+                
+                // Trigger glitch effect
+                this.triggerGlitchEffect();
+                
+                // Start transition after a small delay
+                setTimeout(() => {
+                    // Fade out current slide
+                    currentSlide.style.opacity = '0';
+                    currentSlide.classList.remove('active');
+                    
+                    // Fade in next slide
+                    nextSlide.style.opacity = '1';
+                    nextSlide.classList.add('active');
+                    
+                    // Apply zoom to new image
+                    nextImage.style.transform = 'scale(1.02)';
+                    
+                    // Update current index
+                    this.currentIndex = nextIndex;
+                    
+                    // Allow next transition
+                    setTimeout(() => {
+                        this.isTransitioning = false;
+                    }, 500);
+                }, 300);
             }
             
-            prevSlide() {
-                this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
-                this.updateSlider();
+            triggerGlitchEffect() {
+                // Activate glitch effect
+                this.glitchEffect.classList.add('active');
+                
+                // Remove active class after animation completes
+                setTimeout(() => {
+                    this.glitchEffect.classList.remove('active');
+                }, 300);
             }
             
-            goToSlide(index) {
-                this.currentIndex = index;
-                this.updateSlider();
-            }
-            
-            updateSlider() {
-                // Update slides
+            updateSlides() {
                 this.slides.forEach((slide, index) => {
+                    const image = slide.querySelector('img');
+                    
                     if (index === this.currentIndex) {
                         slide.classList.add('active');
+                        slide.style.opacity = '1';
+                        image.style.transform = 'scale(1.02)';
                     } else {
                         slide.classList.remove('active');
+                        slide.style.opacity = '0';
+                        image.style.transform = 'scale(1)';
                     }
                 });
-                
-                // Update dots
-                this.dots.forEach((dot, index) => {
-                    if (index === this.currentIndex) {
-                        dot.classList.add('active');
-                    } else {
-                        dot.classList.remove('active');
-                    }
-                });
-                
-                // Reset timer
-                this.startTimer();
             }
         }
         
@@ -1310,26 +1234,29 @@
         document.addEventListener('DOMContentLoaded', function() {
             setActiveNavigation();
             
-            // Initialize image slider
-            const imageSlider = new ImageSlider();
+            // Initialize silent glitch slider
+            const slider = new SilentGlitchSlider();
             
-            // Image error handling
+            // Image error handling with fallback Unsplash images
             const images = document.querySelectorAll('.slide img');
-            images.forEach(img => {
+            const fallbackImages = [
+                'https://images.unsplash.com/photo-1530041539828-114de669390e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ];
+            
+            images.forEach((img, index) => {
                 img.addEventListener('error', function() {
-                    // Fallback image if the main image fails to load
-                    const fallbackImages = [
-                        'https://images.unsplash.com/photo-1530041539828-114de669390e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                        'https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                        'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-                    ];
-                    
-                    const index = parseInt(this.parentElement.getAttribute('data-index'));
+                    console.log(`Image ${index} failed to load, using fallback`);
                     if (index >= 0 && index < fallbackImages.length) {
                         this.src = fallbackImages[index];
                     }
                 });
+                
+                // Preload images for smoother transitions
+                const imgElement = new Image();
+                imgElement.src = img.src;
             });
             
             // Close mobile dropdown when clicking on main Trust Center link
