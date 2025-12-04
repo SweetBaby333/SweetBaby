@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore our comprehensive collection of baby names by categories - cultural, astrological, modern, and more. Find the perfect name for your baby.">
+    <meta name="keywords" content="baby names, name categories, cultural names, astrological names, modern names, traditional names, baby name finder">
+    <meta name="author" content="Sweet Baby Team">
+    <meta name="robots" content="index, follow">
+    
+    <!-- OpenGraph Meta Tags -->
+    <meta property="og:title" content="Baby Name Categories - Sweet Baby" />
+    <meta property="og:description" content="Browse hundreds of baby names organized by culture, astrology, characteristics, and more." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" />
+    <meta property="og:url" content="https://www.sweetbaby.com/categories.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Sweet Baby" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Baby Name Categories | Sweet Baby" />
+    <meta name="twitter:description" content="Find the perfect baby name from our organized categories." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" />
+    <meta name="twitter:url" content="https://www.sweetbaby.com/categories.html" />
+    
+    <title>Baby Name Categories - Sweet Baby</title>
+    <link rel="icon" type="image/ico" sizes="96x96" href="favicon.ico">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Base styles and variables - Matching the design system */
+        :root {
+            --primary-color: #6a11cb;
+            --secondary-color: #2575fc;
+            --accent-color: #ff9800;
+            --accent-hover: #e68900;
+            --background-gradient: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            --card-bg: rgba(255, 255, 255, 0.1);
+            --text-white: #FFFFFF;
+            --text-white-light: #F8F8F8;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --category-bg: rgba(255, 255, 255, 0.05);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+
+        body {
+            background: var(--background-gradient);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation - Matching the existing design */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 25px var(--shadow-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            padding: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-white);
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: var(--border-radius);
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo i {
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin: 0;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            background-color: rgba(255, 255, 255, 0.08);
+            font-size: 0.95rem;
+            white-space: nowrap;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: inline-block;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-links a.active {
+            background-color: var(--accent-color);
+            color: var(--text-white);
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+            border-color: var(--accent-color);
+        }
+
+        .nav-links a.active:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .dropdown-toggle i {
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .dropdown.active .dropdown-toggle i {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 220px;
+            background: linear-gradient(135deg, var(--primary-color), #4a0da3);
+            border-radius: var(--border-radius);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            padding: 10px;
+            list-style: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 100;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            margin-top: 5px;
+        }
+
+        .dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li {
+            margin-bottom: 5px;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: var(--text-white);
+            text-decoration: none;
+            border-radius: calc(var(--border-radius) - 4px);
+            transition: var(--transition);
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Mobile Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            color: var(--text-white);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: var(--border-radius);
+            border: none;
+            font-size: 1.4rem;
+            width: 48px;
+            height: 48px;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .menu-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            right: -280px;
+            width: 280px;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color), #4a0da3);
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.4);
+            z-index: 1001;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            padding: 80px 20px 30px;
+            overflow-y: auto;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .mobile-menu-overlay.active {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            color: var(--text-white);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex: 1;
+        }
+
+        .mobile-menu-links li {
+            margin-bottom: 12px;
+        }
+
+        .mobile-menu-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 16px 22px;
+            display: block;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .mobile-menu-links a.active {
+            background-color: var(--accent-color);
+            color: var(--text-white);
+            border-color: var(--accent-color);
+        }
+
+        .mobile-dropdown-menu {
+            list-style: none;
+            padding-left: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            display: none;
+        }
+
+        .mobile-dropdown.active .mobile-dropdown-menu {
+            display: block;
+        }
+
+        .mobile-dropdown-menu li {
+            margin-bottom: 8px;
+        }
+
+        .mobile-dropdown-menu a {
+            padding: 12px 20px;
+            font-size: 1rem;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .mobile-dropdown-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .mobile-dropdown-toggle i {
+            transition: var(--transition);
+        }
+
+        .mobile-dropdown.active .mobile-dropdown-toggle i {
+            transform: rotate(180deg);
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-white);
+            width: 44px;
+            height: 44px;
+            border-radius: var(--border-radius);
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .close-menu:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Categories Hero Section */
+        .categories-hero {
+            padding: 60px 20px 40px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.2), rgba(37, 117, 252, 0.2));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .categories-hero h1 {
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            color: var(--text-white);
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .categories-hero p {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            color: var(--text-white-light);
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        .categories-count {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 25px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            margin-top: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .categories-count i {
+            color: var(--accent-color);
+        }
+
+        /* Categories Grid */
+        .categories-grid {
+            padding: 40px 20px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .category-section {
+            background: var(--category-bg);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+
+        .category-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .category-header {
+            padding: 22px 25px;
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.3), rgba(37, 117, 252, 0.3));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .category-header:hover {
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.4), rgba(37, 117, 252, 0.4));
+        }
+
+        .category-header h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-white);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .category-header h2 i {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .category-header.active h2 i {
+            transform: rotate(90deg);
+        }
+
+        .category-arrow {
+            color: var(--text-white);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .category-header.active .category-arrow {
+            transform: rotate(180deg);
+            color: var(--accent-color);
+        }
+
+        .category-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .category-content.active {
+            max-height: 1000px;
+        }
+
+        .category-list {
+            list-style: none;
+            padding: 20px 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .category-list li {
+            margin-bottom: 0;
+        }
+
+        .category-list a {
+            display: block;
+            padding: 15px 20px;
+            color: var(--text-white);
+            text-decoration: none;
+            border-radius: calc(var(--border-radius) - 4px);
+            transition: var(--transition);
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-weight: 500;
+        }
+
+        .category-list a:hover {
+            background-color: rgba(255, 255, 255, 0.12);
+            transform: translateX(5px);
+            border-color: rgba(255, 255, 255, 0.15);
+            color: var(--accent-color);
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.4);
+            z-index: 999;
+            justify-content: space-around;
+            align-items: center;
+            height: 75px;
+            padding: 0 15px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+        }
+
+        .bottom-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+            padding: 10px 8px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            flex: 1;
+            max-width: 85px;
+            min-height: 60px;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            opacity: 0.8;
+        }
+
+        .bottom-nav a.active,
+        .bottom-nav a:hover {
+            color: var(--accent-color);
+            background: rgba(255, 152, 0, 0.1);
+            transform: translateY(-8px);
+            border-color: rgba(255, 152, 0, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            opacity: 1;
+        }
+
+        .bottom-nav a i {
+            font-size: 1.5rem;
+            margin-bottom: 6px;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 35px 20px;
+            text-align: center;
+            margin-top: auto;
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .slogan {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: var(--text-white);
+            font-weight: 250;
+        }
+
+        .credit {
+            color: var(--text-white-light);
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 1024px) {
+            .nav-links {
+                gap: 5px;
+            }
+            
+            .nav-links a {
+                padding: 9px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .category-list {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 12px 15px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .logo {
+                font-size: 1.6rem;
+                padding: 8px 15px;
+            }
+
+            .categories-hero {
+                padding: 50px 15px 30px;
+            }
+
+            .categories-hero h1 {
+                font-size: 1.9rem;
+                margin-bottom: 15px;
+            }
+
+            .categories-hero p {
+                font-size: 1.1rem;
+                margin-bottom: 25px;
+            }
+
+            .categories-grid {
+                padding: 30px 15px 70px;
+                gap: 20px;
+            }
+
+            .category-header {
+                padding: 18px 20px;
+            }
+
+            .category-header h2 {
+                font-size: 1.2rem;
+                gap: 12px;
+            }
+
+            .category-list {
+                grid-template-columns: 1fr;
+                padding: 15px 20px;
+                gap: 12px;
+            }
+
+            .bottom-nav {
+                height: 70px;
+            }
+
+            .mobile-menu-overlay {
+                width: 260px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .categories-hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .categories-hero p {
+                font-size: 1rem;
+            }
+
+            .categories-count {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .category-header h2 {
+                font-size: 1.1rem;
+            }
+
+            .category-list a {
+                padding: 14px 18px;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .bottom-nav {
+                display: none;
+            }
+            
+            .mobile-menu-overlay {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-baby"></i>
+                Sweet Baby
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="article.html">Blog</a></li>
+                <li class="dropdown" id="trustCenterDropdown">
+                    <a href="trust_center.html" class="dropdown-toggle">
+                        Trust Center
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+                <li><a href="privacy-policy.html">Settings</a></li>
+                <li><a href="privacy-policy.html">Feedback</a></li>
+            </ul>
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <button class="close-menu" id="closeMenu">
+            <i class="fas fa-times"></i>
+        </button>
+        <h2 class="mobile-menu-header">
+            <i class="fas fa-baby"></i>
+            Sweet Baby
+        </h2>
+        <ul class="mobile-menu-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="article.html">Blog</a></li>
+            <li class="mobile-dropdown" id="mobileTrustCenterDropdown">
+                <a href="javascript:void(0)" class="mobile-dropdown-toggle">
+                    Trust Center
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="mobile-dropdown-menu">
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                </ul>
+            </li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+            <li><a href="privacy-policy.html">Settings</a></li>
+            <li><a href="privacy-policy.html">Feedback</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Categories Hero Section -->
+        <section class="categories-hero">
+            <div class="container">
+                <h1>श्रेणीनुसार नावांचे वर्गीकरण</h1>
+                <p>संस्कृती, ज्योतिष, आणि गुणांवर आधारित, परिपूर्ण आणि अर्थपूर्ण नावांचा विस्तृत संग्रह.</p>
+                <div class="categories-count">
+                    <i class="fas fa-circle" style="color: #ff0000; font-size: 1.3em; border: 2px solid #ff0000; border-radius: 50%; padding: 2px;"></i>
+                    <span>13 मुख्य श्रेणी • 100+ उपश्रेणी</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Grid -->
+        <section class="categories-grid container" id="categoriesContainer">
+            <!-- Categories will be dynamically loaded here from the Excel data -->
+        </section>
+    </main>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="bottom-nav">
+        <a href="index.html">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="categories.html" class="active">
+            <i class="fas fa-layer-group"></i>
+            <span>Categories</span>
+        </a>
+        <a href="search.html">
+            <i class="fas fa-magnifying-glass"></i>
+            <span>Search</span>
+        </a>
+        <a href="favorites.html">
+            <i class="fas fa-heart"></i>
+            <span>Favorites</span>
+        </a>
+        <a href="invite.html">
+            <i class="fas fa-user-plus"></i>
+            <span>Invite</span>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="slogan">छोट्या पावलांसाठी, नावात गुंफलेले प्रेम आणि आशा शोधताना, आम्ही आहोत तुमच्या सोबत.</p>
+                <p class="credit">© 2026 Sweet Baby. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Categories data from the Excel sheet
+        const categoriesData = [
+            {
+                title: "मुलगा आणि मुलगी यांच्यासाठी",
+                icon: "far fa-dot-circle",
+                subcategories: [
+                    "मुलांची नावे",
+                    "मुलींची नावे"
+                ]
+            },
+            {
+                title: "संस्कृतीचा वारसा जपणारी नावे",
+                icon: "far fa-dot-circle",
+                subcategories: [
+                    "देवतांची नांवे",
+                    "पौराणिक कथांमधून प्रेरित नावे",
+                    "वैदिक संकल्पनेतील नांवे"
+                ]
+            },
+            {
+                title: "भारतीय प्रांतीय नांवे",
+                icon: "far fa-dot-circle",
+                subcategories: [
+                    "मराठी नावे",
+                    "संस्कृत नावे",
+                    "हिंदी भाषेतील मराठी नावे",
+                    "तामिळ भाषेतील मराठी नावे",
+                    "तेलगु भाषेतील मराठी नावे",
+                    "कन्नड भाषेतील मराठी नावे",
+                    "मल्याळम भाषेतील मराठी नावे",
+                    "गुजराती भाषेतील मराठी नावे",
+                    "कोंकणी भाषेतील मराठी नावे",
+                    "सिंधी भाषेतील मराठी नावे",
+                    "बंगाली भाषेतील मराठी नावे",
+                    "ओडिसा भाषेतील मराठी नावे",
+                    "असामी भाषेतील मराठी नावे",
+                    "पंजाबी भाषेतील मराठी नावे",
+                    "काश्मिरी भाषेतील मराठी नावे",
+                    "उत्तराखंडी भाषेतील मराठी नावे"
+                ]
+            },
+            {
+                title: "वैश्विक सांस्कृतिक नावे",
+                icon: "far fa-dot-circle",
+                subcategories: [
+                    "इस्लामिक नावे",
+                    "अरबी नावे",
+                    "ख्रिश्चन नावे",
+                    "ग्रीक नावे",
+                    "रोमन नावे",
+                    "सेल्टिक पौराणिक नावे",
+                    "इंग्लिश नावे",
+                    "स्पॅनिश नावे",
+                    "फ्रेंच नावे",
+                    "जर्मनी नावे",
+                    "अमेरिकन नावे",
+                    "रशियन नावे"
+                ]
+            },
+            {
+                title: "सकारात्मक प्रेरणादायी नावे",
+                icon: "far fa-dot-circle",
+                subcategories: [
+                    "स्वतंत्रसैनिकांची नावे",
+                    "शास्त्रज्ञांची नावे",
+                    "कलाकारांची नावे",
+                    "लेखकांची नावे",
+                    "सेलेब्रिटी बाळांची नावे",
+                    "ऐतिहासिक व्यक्तिरेखेतील नावे"
+                ]
+            },
+            {
+                title: "ज्योतिषशास्त्र प्रेरित नावे",
+                icon: "far fa-dot-circle",
+                subcategories: [
+                    "राशीचक्रानुसार खास नावे",
+                    "नक्षत्रानुसार शुभ नावे",
+                    "जन्मकुंडलीतील नामाक्षरनुसार नावे",
+                    "जन्मतारखेनुसार अर्थपूर्ण नावे",
+                    "दैवी ऊर्जेने परिपूर्ण नावे"
+                ]
+            },
+            {
+                title: "गुणवैशिष्ट्यांवर आधारित नावे",
+                icon: "far fa-dot-circle",
+                subcategories: [
+                    "ज्ञान वैशिष्ट्यावर आधारित नावे",
+                    "विवेक वैशिष्ट्यावर आधारित नावे",
+                    "साहस वैशिष्ट्यावर आधारित नावे",
+                    "करुणा वैशिष्ट्यावर आधारित नावे",
+                    "दया वैशिष्ट्यावर आधारित नावे",
+                    "उत्साह वैशिष्ट्यावर आधारित नावे",
+                    "ऊर्जा वैशिष्ट्यावर आधारित नावे",
+                    "सौन्दर्य वैशिष्ट्यावर आधारित नावे",
+                    "कला वैशिष्ट्यावर आधारित नावे",
+                    "पवित्रता वैशिष्ट्यावर आधारित नावे",
+                    "अध्यात्मिकता वैशिष्ट्यावर आधारित नावे"
+                ]
+            },
+            {
+                title: "प्राकृतिक स्पर्श असलेली नावे",
+                icon: "far fa-dot-circle",
+                subcategories: [
+                    "फुलांची नावे",
+                    "वृक्षांची नावे",
+                    "नद्यांची नावे",
+                    "पर्वतांची नावे",
+                    "भूदृश्याची नावे",
+                    "अवकाशीय नावे",
+                    "ऋतूंची नावे",
+                    "रंगांची नावे",
+                    "रत्नांची नावे"
+                ]
+            },
+            {
+                title: "नजरेत भरणारी लोकप्रिय नावे",
+                icon: "far fa-dot-circle",
+                subcategories: [
+                    "ट्रेंडिंग असणारी नावे",
+                    "क्लासिकल नावे",
+                    "दुर्मिळ नावे",
+                    "आधुनिक नावे",
+                    "प्राचीन नावे",
+                    "लहान परंतु गोड नावे"
+                ]
+            },
+            {
+                title: "व्यावहारिक प्रेरणेतील नावे",
+                icon: "far fa-dot-circle",
+                subcategories: [
+                    "उच्चारास सोपी नावे",
+                    "आडनावाशी सुसंगत नावे",
+                    "टोपणनावे",
+                    "दोन अर्थाची नावे"
+                ]
+            },
+            {
+                title: "विशेष प्रसंगासाठी परिपूर्ण नावे",
+                icon: "far fa-dot-circle",
+                subcategories: [
+                    "जुळ्या बालकांसाठी नावे",
+                    "आई बाबांच्या आद्याक्षरांवरून नावे",
+                    "आई बाबांचे एकत्रित नाव",
+                    "पारिवारिक परंपरेची नावे",
+                    "आशीर्वादात्मक अर्थाची नावे"
+                ]
+            },
+            {
+                title: "कल्पनेतील नावांचा शोध",
+                icon: "far fa-dot-circle",
+                subcategories: [
+                    "A to Z • वर्णमालेनुसार नावे",
+                    "अक्षरसंख्येनुसार नावे",
+                    "विशिष्ट अर्थसमृद्ध नावे",
+                    "मिश्र प्रांतिय नावे"
+                ]
+            }
+        ];
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close menu when clicking on a non-dropdown link
+        document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+            if (!link.classList.contains('mobile-dropdown-toggle')) {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            }
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (mobileMenu.classList.contains('active') && 
+                !mobileMenu.contains(event.target) && 
+                !menuToggle.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Trust Center Dropdown for Desktop
+        const trustCenterDropdown = document.getElementById('trustCenterDropdown');
+        
+        trustCenterDropdown.addEventListener('click', (e) => {
+            if (window.innerWidth > 768) {
+                e.preventDefault();
+                trustCenterDropdown.classList.toggle('active');
+                
+                // Close other dropdowns if any
+                document.querySelectorAll('.dropdown').forEach(dropdown => {
+                    if (dropdown !== trustCenterDropdown) {
+                        dropdown.classList.remove('active');
+                    }
+                });
+            }
+        });
+
+        // Trust Center Dropdown for Mobile
+        const mobileTrustCenterDropdown = document.getElementById('mobileTrustCenterDropdown');
+        
+        mobileTrustCenterDropdown.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            mobileTrustCenterDropdown.classList.toggle('active');
+        });
+
+        // Close dropdown when clicking outside on desktop
+        document.addEventListener('click', (event) => {
+            if (window.innerWidth > 768) {
+                if (!trustCenterDropdown.contains(event.target)) {
+                    trustCenterDropdown.classList.remove('active');
+                }
+            }
+        });
+
+        // Close mobile dropdown when clicking on submenu items
+        document.querySelectorAll('.mobile-dropdown-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load categories from data
+            const categoriesContainer = document.getElementById('categoriesContainer');
+            
+            categoriesData.forEach((category, index) => {
+                const categoryElement = document.createElement('div');
+                categoryElement.className = 'category-section';
+                categoryElement.dataset.index = index;
+                
+                categoryElement.innerHTML = `
+                    <div class="category-header">
+                        <h2><i class="${category.icon}"></i> ${category.title}</h2>
+                        <i class="fas fa-chevron-down category-arrow"></i>
+                    </div>
+                    <div class="category-content">
+                        <ul class="category-list">
+                            ${category.subcategories.map(subcat => 
+                                `<li><a href="search.html?category=${encodeURIComponent(subcat)}">${subcat}</a></li>`
+                            ).join('')}
+                        </ul>
+                    </div>
+                `;
+                
+                categoriesContainer.appendChild(categoryElement);
+            });
+            
+            // Add click event to category headers
+            document.querySelectorAll('.category-header').forEach(header => {
+                header.addEventListener('click', function() {
+                    const categorySection = this.parentElement;
+                    const categoryContent = this.nextElementSibling;
+                    
+                    // Toggle active class
+                    categorySection.classList.toggle('active');
+                    
+                    // Toggle the content visibility
+                    if (categoryContent.classList.contains('active')) {
+                        categoryContent.classList.remove('active');
+                        this.classList.remove('active');
+                    } else {
+                        // Close other open categories
+                        document.querySelectorAll('.category-content.active').forEach(activeContent => {
+                            if (activeContent !== categoryContent) {
+                                activeContent.classList.remove('active');
+                                activeContent.previousElementSibling.classList.remove('active');
+                            }
+                        });
+                        
+                        categoryContent.classList.add('active');
+                        this.classList.add('active');
+                    }
+                });
+            });
+            
+            // Open first category by default on desktop
+            if (window.innerWidth > 768) {
+                const firstCategory = document.querySelector('.category-section');
+                if (firstCategory) {
+                    firstCategory.classList.add('active');
+                    firstCategory.querySelector('.category-content').classList.add('active');
+                    firstCategory.querySelector('.category-header').classList.add('active');
+                }
+            }
+            
+            // Set active navigation
+            function setActiveNavigation() {
+                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+                const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu-links a, .bottom-nav a');
+                
+                navLinks.forEach(link => {
+                    const linkHref = link.getAttribute('href');
+                    link.classList.remove('active');
+                    
+                    if ((currentPage === 'categories.html' && linkHref === 'categories.html') ||
+                        (currentPage === linkHref)) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            setActiveNavigation();
+        });
+
+        // Simple pull-to-refresh for mobile
+        let touchStartY = 0;
+        
+        document.addEventListener('touchstart', (e) => {
+            if (window.scrollY === 0) {
+                touchStartY = e.touches[0].clientY;
+            }
+        });
+        
+        document.addEventListener('touchend', (e) => {
+            if (touchStartY && window.scrollY === 0) {
+                const touchEndY = e.changedTouches[0].clientY;
+                const pullDistance = touchEndY - touchStartY;
+                
+                if (pullDistance > 150) {
+                    // Reload page with slight animation
+                    document.body.style.transition = 'transform 0.3s ease-out';
+                    document.body.style.transform = 'translateY(100px)';
+                    
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 300);
+                }
+                
+                touchStartY = 0;
+            }
+        });
+    </script>
+</body>
+</html>
